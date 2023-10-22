@@ -18,7 +18,11 @@ use App\Http\Controllers\ManagerController;
 
 
 
+// routes/web.php
 Route::get('/', [ManagerController::class, 'index'])->name('home');
+Route::post('/promanager/store', [ManagerController::class, 'create'])->name('manager.store');
+
+
 
 
 
