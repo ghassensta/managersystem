@@ -12,8 +12,8 @@ class ManagerController extends Controller
     public function index()
     {
         $manager = Manager::all();
-
-        return view('manager.index', compact('manager'));
+        $count = $manager->count();
+        return view('manager.index', compact('manager', 'count'));
     }
 
 
@@ -42,6 +42,13 @@ class ManagerController extends Controller
     }
 
 
+public function delete ($id){
 
+    $manager=Manager::find($id);
+    $manager->delete();
+
+    return redirect()->route('home');
+
+}
 
 }

@@ -25,8 +25,14 @@
                 <td>{{ $m->total }}</td>
                 <td>{{ $m->category }}</td>
                 <td><button class="update" data-id="{{ $m->id }}">Update</button></td> <!-- Correction ici -->
-                <td><button class="delete" data-id="{{ $m->id }}">Delete</button></td> <!-- Correction ici -->
-            </tr>
+                <td>
+                    <form action="{{ route('manager.delete', ['id' => $m->id]) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+                            </tr>
         @endforeach
     </tbody>
 </table>

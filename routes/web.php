@@ -20,8 +20,8 @@ use App\Http\Controllers\ManagerController;
 
 // routes/web.php
 Route::get('/', [ManagerController::class, 'index'])->name('home');
-Route::post('/promanager/store', [ManagerController::class, 'create'])->name('manager.store');
-
+Route::post('/manager/store', [ManagerController::class, 'create'])->name('manager.store');
+Route::delete('manager/delete/{id}',[ManagerController::class, 'delete'])->name('manager.delete');
 
 
 
