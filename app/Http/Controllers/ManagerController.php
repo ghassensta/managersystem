@@ -51,4 +51,11 @@ public function delete ($id){
 
 }
 
+public function deleteAll()
+{
+    Manager::truncate();
+    return redirect()->route('home');
+}
+
+
 }

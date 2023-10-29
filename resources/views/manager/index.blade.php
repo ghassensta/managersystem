@@ -8,11 +8,19 @@
     <title>manager</title>
 </head>
 <body>
+
+
+
+
 <div class="crud">
-@include('manager.partials.header')
-@include('manager.partials.inputs')
-@include('manager.partials.outputs')
-@include('manager.partials.tables')
+    @include('manager.partials.header')
+    @include('manager.partials.inputs')
+    @include('manager.partials.outputs')
+    @if ($count > 0)
+        @include('manager.partials.tables')
+    @else
+        <p class="center-text">No product</p>
+    @endif
 </div>
 </body>
 </html>
