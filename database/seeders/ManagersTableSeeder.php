@@ -13,40 +13,22 @@ class ManagersTableSeeder extends Seeder
      */
     public function run()
 {
-    $managers = [
-        [
-            'title' => 'iphone',
-            'price' => 2000,
-            'taxes' => 100,
-            'ads' => 100,
-            'discount' => 100,
-            'total' => 2100,
-            'category' => 'phone',
-        ],
-        [
-            'title' => 'redmi',
-            'price' => 1500,
-            'taxes' => 75,
-            'ads' => 50,
-            'discount' => 90,
-            'total' => 1535,
-            'category' => 'tablet',
-        ],
-        [
-            'title' => 'motrorela',
-            'price' => 2500,
-            'taxes' => 125,
-            'ads' => 75,
-            'discount' => 120,
-            'total' => 2580,
-            'category' => 'laptop',
-        ],
-        // Ajoutez autant d'enregistrements que nécessaire
-    ];
 
+        // Utilisez une boucle pour générer 200 enregistrements uniques
+        for ($i = 1; $i <= 100; $i++) {
+            Manager::create([
+                'title' => 'Product ' . $i,
+                'price' => rand(1000, 3000), // Générez un prix aléatoire
+                'taxes' => rand(50, 200),   // Générez des taxes aléatoires
+                'ads' => rand(25, 100),     // Générez des coûts publicitaires aléatoires
+                'discount' => rand(50, 150), // Générez des remises aléatoires
+                'total' => 0,               // Laissez la colonne "total" à 0 pour le moment
+                'category' => 'Category ' . rand(1, 5), // Générez une catégorie aléatoire
+            ]);
+        }
+
+    }
     // Utilisez le modèle Manager pour insérer les données
-    Manager::insert($managers);
 }
 
 
-}

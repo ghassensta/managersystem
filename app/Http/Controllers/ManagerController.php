@@ -29,7 +29,6 @@ class ManagerController extends Controller
         $manager->taxes = $data['taxes'];
         $manager->ads = $data['ads'];
         $manager->discount = $data['discount'];
-        $manager->count = $data['count'];
         $manager->category = $data['category'];
 
         // Calculez le champ "total" en fonction des autres champs

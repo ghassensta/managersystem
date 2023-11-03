@@ -1,3 +1,14 @@
+<div class="outputs">
+    <div class="searchBlock">
+        <input type="text" name="search" placeholder="search" id="searchTerm">
+        <div class="towobutton" id="searchResults">
+            <button onclick="searchByTitle()" name="searchtitle" id="searchTitle">Search by title</button>
+            <button onclick="searchByCategory()" name="searchcategory" id="searchCategory">Search by category</button>
+        </div>
+        <br>
+    </div>
+</div>
+
 <table>
     <thead>
         <tr>
@@ -13,18 +24,18 @@
             <th>delete</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="tableBody">
         @foreach ($manager as $m)
             <tr>
                 <td>{{ $m->id }}</td>
-                <td>{{ $m->title }}</td> <!-- Correction ici -->
+                <td>{{ $m->title }}</td>
                 <td>{{ $m->price }}</td>
                 <td>{{ $m->taxes }}</td>
                 <td>{{ $m->ads }}</td>
                 <td>{{ $m->discount }}</td>
                 <td>{{ $m->total }}</td>
                 <td>{{ $m->category }}</td>
-                <td><button class="update" data-id="{{ $m->id }}">Update</button></td> <!-- Correction ici -->
+                <td><button class="update" data-id="{{ $m->id }}">Update</button></td>
                 <td>
                     <form action="{{ route('manager.delete', ['id' => $m->id]) }}" method="POST">
                         @csrf
@@ -32,7 +43,8 @@
                         <button type="submit">Delete</button>
                     </form>
                 </td>
-                            </tr>
+            </tr>
         @endforeach
     </tbody>
 </table>
+

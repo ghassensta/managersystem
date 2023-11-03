@@ -22,5 +22,6 @@
         <p class="center-text">No product</p>
     @endif
 </div>
+@include('manager.partials.scripts')
 </body>
 </html>
