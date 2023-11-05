@@ -8,7 +8,7 @@
         const discount = parseFloat(document.getElementById('discount').value) || 0;
 
         // Calculez le total
-        const total = price + taxes + ads - discount;
+        const total = (price + taxes + ads) - discount;
 
         // Récupérez l'élément total
         const totalElement = document.getElementById('total');
@@ -35,64 +35,49 @@
 </script>
 
 
-{{-- serach
- --}}
+
+{{-- serach--}}
+
  <script>
     function searchData(value) {
         // Réinitialisez les résultats de la recherche lorsque l'utilisateur modifie la requête.
-        document.getElementById('searchResults').innerHTML = '';
+        document.getElementById('tableBody').innerHTML = '';
     }
 
     function searchByTitle() {
         var searchTerm = document.getElementById('searchTerm').value;
-        var users = @json($manager);
+        var rows = document.querySelectorAll('#tableBody tr');
 
-        var filteredUsers = users.filter(function(user) {
-            return user.title.toLowerCase().includes(searchTerm.toLowerCase());
+        rows.forEach(function(row) {
+            var title = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+            if (title.includes(searchTerm.toLowerCase())) {
+                row.style.display = 'table-row';
+            } else {
+                row.style.display = 'none';
+                            }
         });
-
-        displayResults(filteredUsers);
     }
 
     function searchByCategory() {
         var searchTerm = document.getElementById('searchTerm').value;
-        var users = @json($manager);
+        var rows = document.querySelectorAll('#tableBody tr');
 
-        var filteredUsers = users.filter(function(user) {
-            return user.category.toLowerCase().includes(searchTerm.toLowerCase());
+        rows.forEach(function(row) {
+            var category = row.querySelector('td:nth-child(8)').textContent.toLowerCase();
+            if (category.includes(searchTerm.toLowerCase())) {
+                row.style.display = 'table-row';
+            } else {
+                row.style.display = 'none';
+
+
+            }
         });
-
-        displayResults(filteredUsers);
     }
 
-    function displayResults(users) {
-        var tableBody = document.getElementById('tableBody');
-        var result = '';
-        if (users.length === 0) {
-            result = 'Aucun utilisateur trouvé.';
-        } else {
-            users.forEach(function(user) {
-                result += '<tr>';
-                result += `<td>${user.id}</td>`;
-                result += `<td>${user.title}</td>`;
-                result += `<td>${user.price}</td>`;
-                result += `<td>${user.taxes}</td>`;
-                result += `<td>${user.ads}</td>`;
-                result += `<td>${user.discount}</td>`;
-                result += `<td>${user.total}</td>`;
-                result += `<td>${user.category}</td>`;
-                result += `<td><button class="update" data-id="${user.id}">Update</button></td>`;
-                result += '<td>';
-                result += `<form action="" method="POST">`;
-                result += '@csrf';
-                result += '@method('DELETE')';
-                result += '<button type="submit">Delete</button>';
-                result += '</form>';
-                result += '</td>';
-                result += '</tr>';
-            });
-        }
-
-        tableBody.innerHTML = result;
+    function displayAll() {
+        var rows = document.querySelectorAll('#tableBody tr');
+        rows.forEach(function(row) {
+            row.style.display = 'table-row';
+        });
     }
 </script>

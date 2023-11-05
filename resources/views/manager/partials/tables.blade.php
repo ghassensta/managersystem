@@ -4,8 +4,16 @@
         <div class="towobutton" id="searchResults">
             <button onclick="searchByTitle()" name="searchtitle" id="searchTitle">Search by title</button>
             <button onclick="searchByCategory()" name="searchcategory" id="searchCategory">Search by category</button>
+            <button onclick="displayAll()" name="displayAll">Display All</button>
         </div>
         <br>
+        <form action="{{ route('manager.deleteAll') }}" method="POST">
+            @csrf
+            @method('DELETE')
+            @if ($count > 0)
+                <button name="deleteAll" id="deleteAll">Delete All ({{ $count }})</button>
+            @endif
+        </form>
     </div>
 </div>
 
@@ -47,4 +55,9 @@
         @endforeach
     </tbody>
 </table>
+
+
+
+
+
 

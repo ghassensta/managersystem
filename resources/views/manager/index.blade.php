@@ -19,7 +19,7 @@
     @if ($count > 0)
         @include('manager.partials.tables')
     @else
-        <p class="center-text">No product</p>
+        <p style="margin-top: 13%;" class="center-text">No product</p>
     @endif
 </div>
 @include('manager.partials.scripts')

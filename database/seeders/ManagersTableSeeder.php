@@ -15,7 +15,7 @@ class ManagersTableSeeder extends Seeder
 {
 
         // Utilisez une boucle pour générer 200 enregistrements uniques
-        for ($i = 1; $i <= 100; $i++) {
+        for ($i = 1; $i <= 200; $i++) {
             Manager::create([
                 'title' => 'Product ' . $i,
                 'price' => rand(1000, 3000), // Générez un prix aléatoire
@@ -28,7 +28,6 @@ class ManagersTableSeeder extends Seeder
         }
 
     }
-    // Utilisez le modèle Manager pour insérer les données
 }
 
 

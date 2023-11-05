@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ManagerController;
+use App\Http\Controllers\PdfController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ Route::get('/', [ManagerController::class, 'index'])->name('home');
 Route::post('/manager/store', [ManagerController::class, 'create'])->name('manager.store');
 Route::delete('manager/delete/{id}',[ManagerController::class, 'delete'])->name('manager.delete');
 Route::delete('manager/delete',[ManagerController::class, 'deleteAll'])->name('manager.deleteAll');
+Route::get('/generate-pdf',[PdfController::class, 'generatePDF'])->name('pdfdata');
 
 
 
