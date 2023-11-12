@@ -5,6 +5,10 @@
             <button onclick="searchByTitle()" name="searchtitle" id="searchTitle">Search by title</button>
             <button onclick="searchByCategory()" name="searchcategory" id="searchCategory">Search by category</button>
             <button onclick="displayAll()" name="displayAll">Display All</button>
+            <a class="pdf" id="printAll" href="{{ route('pdf_data_table') }}" >Print All</a>
+
+
+
         </div>
         <br>
         <form action="{{ route('manager.deleteAll') }}" method="POST">
@@ -12,6 +16,7 @@
             @method('DELETE')
             @if ($count > 0)
                 <button name="deleteAll" id="deleteAll">Delete All ({{ $count }})</button>
+
             @endif
         </form>
     </div>
