@@ -110,18 +110,19 @@
         <tfoot>
             <tr>
                 <td colspan="6"></td>
-                <td align="center">Subtotal $</td>
-                <td align="center">1635.00</td>
+                <td align="center">Total Products</td>
+                <td align="center">{{ $y }}</td>
             </tr>
-            <tr>
-                <td colspan="6"></td>
-                <td align="center">Tax $</td>
-                <td align="center">294.3</td>
-            </tr>
+
             <tr>
                 <td colspan="6"></td>
                 <td align="center">Total $</td>
-                <td align="center" class="gray">$ 1929.3</td>
+                <td align="center" class="gray">$ {{ $x }}</td>
+            </tr>
+            <tr>
+                <td colspan="6"></td>
+                <td align="center">Total Dinar Tunisienne </td>
+                <td align="center"style="display:flex;" class="gray"> {{ $x }} DT</td>
             </tr>
         </tfoot>
     </table>

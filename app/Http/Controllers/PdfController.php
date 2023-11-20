@@ -15,8 +15,10 @@ class PdfController extends Controller
     public function generatePDF()
     {
         $data= Manager::all(); // Votre tableau de données
+        $y=$data->count();
+        $x = Manager::where('total', '!=', null)->sum('total');
 
-        $pdf = PDF::loadView('pdf.template', ['data' => $data]);
+        $pdf = PDF::loadView('pdf.template', ['data' => $data,'x'=>$x,'y'=>$y]);
 
         return $pdf->download('tableau.pdf');
     }

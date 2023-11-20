@@ -8,13 +8,20 @@ use App\Models\Manager;
 
 class ManagerController extends Controller
 {
-
     public function index()
     {
         $manager = Manager::all();
+
         $count = $manager->count();
+
+        // Calculate the sum of 'total' values
+        $x = Manager::where('total', '!=', null)->sum('total');
+
+      //  dd($x);
         return view('manager.index', compact('manager', 'count'));
     }
+
+
 
 
     public function create(Request $request)
@@ -57,4 +64,7 @@ public function deleteAll()
 }
 
 
+
+// ... autres méthodes du contrôleur ...
 }
+
